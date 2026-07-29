@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -187,33 +189,228 @@
         </section>
 
         <section class="bg-pastel-purple/20 rounded-3xl shadow-sm border border-purple-100 p-6 lg:p-8">
-            <div class="flex items-center gap-4 mb-6">
-                <div class="bg-purple-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-purple-700 shrink-0">
-                    <i class="fas fa-list-ol"></i>
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-purple-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-purple-700 shrink-0">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-black text-2xl text-gray-800">Recap: Adjective Order</h2>
+                        <p class="text-gray-600 font-medium">Drag and drop the word blocks to form the correct sentences!</p>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="font-black text-2xl text-gray-800">Recap: Adjective Order</h2>
-                    <p class="text-gray-600 font-medium">Let's review the "VIP Line" before we speak!</p>
+                <span class="bg-purple-100 text-purple-800 font-bold px-4 py-1.5 rounded-full text-sm whitespace-nowrap">Language Reference - Page 20</span>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-purple-200 shadow-sm mb-8">
+                <h4 class="font-bold text-purple-800 mb-4 flex items-center gap-2 text-lg">
+                    <i class="fas fa-lightbulb text-yellow-500"></i> Helpful Tip: The Rule!
+                </h4>
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base">
+                    <div class="bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow-sm">1. Opinion</div>
+                    <i class="fas fa-arrow-right text-purple-300 hidden sm:block"></i>
+                    <div class="bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-lg shadow-sm">2. Colour/Pattern</div>
+                    <i class="fas fa-arrow-right text-purple-300 hidden sm:block"></i>
+                    <div class="bg-green-100 text-green-800 font-bold px-4 py-2 rounded-lg shadow-sm">3. Material</div>
+                    <i class="fas fa-arrow-right text-purple-300 hidden sm:block"></i>
+                    <div class="bg-orange-100 text-orange-800 font-bold px-4 py-2 rounded-lg shadow-sm">4. Style/Type</div>
+                    <i class="fas fa-arrow-right text-purple-300 hidden sm:block"></i>
+                    <div class="bg-gray-800 text-white font-black px-4 py-2 rounded-lg shadow-sm">Noun</div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-purple-200">
-                <p class="text-center text-gray-500 font-bold mb-5 uppercase tracking-wider text-sm">When using two or three adjectives, follow this order:</p>
-                
-                <div class="flex flex-wrap justify-center items-center gap-3 mb-6">
-                    <div class="bg-orange-500 text-white font-bold py-2.5 px-5 rounded-xl shadow-md transform hover:scale-105 transition-transform">1. Opinion</div>
-                    <i class="fas fa-arrow-right text-gray-400"></i>
-                    <div class="bg-pink-500 text-white font-bold py-2.5 px-5 rounded-xl shadow-md transform hover:scale-105 transition-transform">2. Style / Type</div>
-                    <i class="fas fa-arrow-right text-gray-400"></i>
-                    <div class="bg-green-500 text-white font-bold py-2.5 px-5 rounded-xl shadow-md transform hover:scale-105 transition-transform">3. Colour / Pattern</div>
-                    <i class="fas fa-arrow-right text-gray-400"></i>
-                    <div class="bg-blue-500 text-white font-bold py-2.5 px-5 rounded-xl shadow-md transform hover:scale-105 transition-transform">4. Material</div>
-                    <i class="fas fa-plus text-gray-300 mx-2"></i>
-                    <div class="bg-gray-800 text-white font-black py-2.5 px-6 rounded-xl shadow-md">NOUN</div>
+            <div class="bg-blue-50/50 rounded-2xl p-5 border border-blue-200 shadow-sm mb-8">
+                <h4 class="font-bold text-blue-800 mb-4 flex items-center gap-2 text-lg">
+                    <i class="fas fa-info-circle text-blue-500"></i> Helpful tips when two or more adjectives are used before a noun:
+                </h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                        <p class="font-bold text-gray-700 mb-2">1. general before specific:</p>
+                        <div class="space-y-1">
+                            <p class="text-red-500 line-through text-sm flex items-center gap-2">
+                                <i class="fas fa-times w-4 text-center"></i> A Brazilian famous model.
+                            </p>
+                            <p class="text-green-600 font-medium text-sm flex items-center gap-2">
+                                <i class="fas fa-check w-4 text-center"></i> A famous Brazilian model.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                        <p class="font-bold text-gray-700 mb-2">2. opinion before description:</p>
+                        <div class="space-y-1">
+                            <p class="text-red-500 line-through text-sm flex items-center gap-2">
+                                <i class="fas fa-times w-4 text-center"></i> An electric cool bicycle.
+                            </p>
+                            <p class="text-green-600 font-medium text-sm flex items-center gap-2">
+                                <i class="fas fa-check w-4 text-center"></i> A cool electric bicycle.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="text-center text-gray-700 text-lg">
-                    <span class="italic">"A <strong class="text-orange-500">gorgeous</strong> <strong class="text-pink-500">baggy</strong> <strong class="text-green-500">blue</strong> <strong class="text-blue-500">denim</strong> <strong>jacket</strong>."</span>
+            </div>
+
+            <div class="space-y-4 text-left">
+                <!-- Item 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm">
+                    <p class="text-gray-600 mb-3 font-medium">1. The actress wore a black silk dress. <span class="text-purple-600 font-bold">(gorgeous)</span></p>
+                    <div class="flex flex-wrap items-center gap-3 text-lg">
+                        <span class="text-gray-700 font-medium">The actress wore a</span>
+                        <div id="sort1" class="sortable-list flex flex-wrap gap-2 p-2 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 min-h-[55px] min-w-[250px] transition-colors">
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="black">black</div>
+                            <div class="cursor-grab bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:border-purple-400 active:cursor-grabbing" data-word="gorgeous">gorgeous</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="silk">silk</div>
+                        </div>
+                        <span class="text-gray-700 font-medium">dress.</span>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm">
+                    <p class="text-gray-600 mb-3 font-medium">2. My teacher has no dress sense. He loves these awful colourful trousers. <span class="text-purple-600 font-bold">(baggy)</span></p>
+                    <div class="flex flex-wrap items-center gap-3 text-lg">
+                        <span class="text-gray-700 font-medium">He loves these</span>
+                        <div id="sort2" class="sortable-list flex flex-wrap gap-2 p-2 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 min-h-[55px] min-w-[250px] transition-colors">
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="colourful">colourful</div>
+                            <div class="cursor-grab bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:border-purple-400 active:cursor-grabbing" data-word="baggy">baggy</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="awful">awful</div>
+                        </div>
+                        <span class="text-gray-700 font-medium">trousers.</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm">
+                    <p class="text-gray-600 mb-3 font-medium">3. I normally wear comfortable skinny jeans to school. <span class="text-purple-600 font-bold">(black)</span></p>
+                    <div class="flex flex-wrap items-center gap-3 text-lg">
+                        <span class="text-gray-700 font-medium">I normally wear</span>
+                        <div id="sort3" class="sortable-list flex flex-wrap gap-2 p-2 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 min-h-[55px] min-w-[250px] transition-colors">
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="skinny">skinny</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="comfortable">comfortable</div>
+                            <div class="cursor-grab bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:border-purple-400 active:cursor-grabbing" data-word="black">black</div>
+                        </div>
+                        <span class="text-gray-700 font-medium">jeans.</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm">
+                    <p class="text-gray-600 mb-3 font-medium">4. I gave my dad a nice checked shirt for Christmas. <span class="text-purple-600 font-bold">(flannel)</span></p>
+                    <div class="flex flex-wrap items-center gap-3 text-lg">
+                        <span class="text-gray-700 font-medium">I gave my dad a</span>
+                        <div id="sort4" class="sortable-list flex flex-wrap gap-2 p-2 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 min-h-[55px] min-w-[250px] transition-colors">
+                            <div class="cursor-grab bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:border-purple-400 active:cursor-grabbing" data-word="flannel">flannel</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="nice">nice</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="checked">checked</div>
+                        </div>
+                        <span class="text-gray-700 font-medium">shirt.</span>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm">
+                    <p class="text-gray-600 mb-3 font-medium">5. My brother loves wearing cool black trainers. <span class="text-purple-600 font-bold">(high-top)</span></p>
+                    <div class="flex flex-wrap items-center gap-3 text-lg">
+                        <span class="text-gray-700 font-medium">My brother loves wearing</span>
+                        <div id="sort5" class="sortable-list flex flex-wrap gap-2 p-2 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 min-h-[55px] min-w-[250px] transition-colors">
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="black">black</div>
+                            <div class="cursor-grab bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-lg shadow border border-purple-200 hover:border-purple-400 active:cursor-grabbing" data-word="high-top">high-top</div>
+                            <div class="cursor-grab bg-white text-gray-800 font-bold px-4 py-2 rounded-lg shadow border border-gray-200 hover:border-purple-400 active:cursor-grabbing" data-word="cool">cool</div>
+                        </div>
+                        <span class="text-gray-700 font-medium">trainers.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-center gap-4">
+                <button onclick="verifyLangRef()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-colors flex items-center gap-2">
+                    <i class="fas fa-check-circle"></i> Verify Sentences
+                </button>
+                <button onclick="resetLangRef()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-8 rounded-xl shadow-md transition-colors flex items-center gap-2">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-purple-200 shadow-sm mt-8">
+                <h4 class="font-bold text-purple-800 mb-4 text-lg">
+                    Exercise 2: Describe the following clothes using two or three adjectives.
+                </h4>
+                <div class="space-y-5">
+                    <div class="group">
+                        <label class="block text-gray-700 font-medium mb-1 group-hover:text-purple-600 transition-colors">1. An outfit you wore to a fancy dress party.</label>
+                        <input type="text" class="w-full border-b-2 border-gray-200 focus:border-purple-500 outline-none px-2 py-2 text-gray-800 bg-gray-50 focus:bg-white rounded-t-md transition-all" placeholder="E.g., I wore a gorgeous long black dress...">
+                    </div>
+                    <div class="group">
+                        <label class="block text-gray-700 font-medium mb-1 group-hover:text-purple-600 transition-colors">2. What you are wearing at the moment.</label>
+                        <input type="text" class="w-full border-b-2 border-gray-200 focus:border-purple-500 outline-none px-2 py-2 text-gray-800 bg-gray-50 focus:bg-white rounded-t-md transition-all" placeholder="E.g., I am wearing a comfortable baggy cotton T-shirt...">
+                    </div>
+                    <div class="group">
+                        <label class="block text-gray-700 font-medium mb-1 group-hover:text-purple-600 transition-colors">3. What you would wear to an award ceremony.</label>
+                        <input type="text" class="w-full border-b-2 border-gray-200 focus:border-purple-500 outline-none px-2 py-2 text-gray-800 bg-gray-50 focus:bg-white rounded-t-md transition-all" placeholder="E.g., I would wear a cool fitted silk suit...">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="bg-teal-50/30 rounded-3xl shadow-sm border border-teal-200 p-6 lg:p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-teal-100 rounded-bl-full opacity-50 pointer-events-none"></div>
+            
+            <div class="flex items-center gap-4 mb-6 relative z-10">
+                 <div class="bg-teal-500 text-white font-black text-xl w-14 h-14 rounded-xl flex items-center justify-center shadow-md border border-teal-600 transform -rotate-3">
+                    1C
+                </div>
+                <h2 class="font-black text-3xl text-gray-800 tracking-tight">GERUNDS</h2>
+            </div>
+            
+            <p class="text-gray-700 font-medium mb-6 text-lg relative z-10">We use a gerund in the following situations:</p>
+            
+            <div class="overflow-hidden rounded-2xl border border-teal-200 shadow-sm relative z-10">
+                <table class="w-full bg-white text-left">
+                    <thead class="bg-teal-100 text-teal-900 border-b border-teal-200">
+                        <tr>
+                            <th class="p-4 font-bold w-1/2">Situation</th>
+                            <th class="p-4 font-bold w-1/2">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-teal-50">
+                        <tr class="hover:bg-teal-50/50 transition-colors">
+                            <td class="p-4 text-gray-800 font-medium">1. As the subject of a sentence</td>
+                            <td class="p-4 text-gray-600">
+                                <span class="font-bold text-teal-700 underline decoration-teal-400 decoration-2 underline-offset-2">Winning</span> the lottery is a dream of mine.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-50/50 transition-colors">
+                            <td class="p-4 text-gray-800 font-medium">2. Following a preposition</td>
+                            <td class="p-4 text-gray-600">
+                                The student apologised for <span class="font-bold text-teal-700 underline decoration-teal-400 decoration-2 underline-offset-2">being</span> late.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-teal-50/50 transition-colors">
+                            <td class="p-4 text-gray-800 font-medium">3. Following certain verbs</td>
+                            <td class="p-4 text-gray-600">
+                                I miss <span class="font-bold text-teal-700 underline decoration-teal-400 decoration-2 underline-offset-2">chatting</span> with Vinnie.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-6 bg-white p-6 rounded-2xl border border-teal-200 shadow-sm flex flex-col sm:flex-row gap-4 items-start relative z-10">
+                <div class="bg-teal-100 text-teal-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-gray-800 font-bold mb-3 text-lg">These verbs are usually followed by verbs in the gerund form:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">can't stand</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">consider</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">dislike</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">fancy</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">finish</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">like</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">love</span>
+                        <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1 rounded-md font-mono text-sm font-semibold">practice</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -329,6 +526,9 @@
     </main>
 
     <script>
+        // Store initial states for sortable resets
+        const initialSortableStates = {};
+
         document.addEventListener('DOMContentLoaded', function() {
             // Timer Logic (32 min class)
             let minutes = 32;
@@ -355,16 +555,24 @@
                     }
                 }, 1000);
             }
+
+            const sortables = document.querySelectorAll('.sortable-list');
+            sortables.forEach(el => {
+                initialSortableStates[el.id] = el.innerHTML;
+                new Sortable(el, {
+                    animation: 150,
+                    ghostClass: 'opacity-50'
+                });
+            });
         });
 
         // Validation Logic for Exercise 1
         function verifyAnswers() {
             // Rules: check if the text contains BOTH required descriptive words from the box.
-            // (Opinion adjectives vary, so we only check the facts).
             const rules = [
                 { id: 'ex1-2', regex: /(?=.*black)(?=.*platform)/i },
                 { id: 'ex1-3', regex: /(?=.*striped)(?=.*baggy)/i },
-                { id: 'ex1-4', regex: /(?=.*checked)(?=.*tight)/i },
+                { id: 'ex1-4', regex: /(?=.*checked)(?=.*grey)/i },
                 { id: 'ex1-5', regex: /(?=.*grey)(?=.*high-top)/i }
             ];
 
@@ -374,10 +582,7 @@
                     const value = input.value.trim();
                     input.classList.remove('correct', 'incorrect');
                     
-                    if (value === "") {
-                        // Ignore empty fields
-                        return; 
-                    }
+                    if (value === "") return; 
 
                     if (rule.regex.test(value)) {
                         input.classList.add('correct');
@@ -397,6 +602,44 @@
                     input.classList.remove('correct', 'incorrect');
                 }
             });
+        }
+
+        function verifyLangRef() {
+            // Book Rule: Opinion -> Colour/Pattern -> Material -> Style/Type
+            const answers = {
+                'sort1': ['gorgeous', 'black', 'silk'],
+                'sort2': ['awful', 'colourful', 'baggy'], 
+                'sort3': ['comfortable', 'black', 'skinny'], 
+                'sort4': ['nice', 'checked', 'flannel'], 
+                'sort5': ['cool', 'black', 'high-top'] 
+            };
+
+            for (const [id, correctOrder] of Object.entries(answers)) {
+                const container = document.getElementById(id);
+                if (!container) continue;
+
+                const currentOrder = Array.from(container.children).map(child => child.getAttribute('data-word'));
+                
+                // Reset classes
+                container.classList.remove('border-gray-300', 'border-green-500', 'border-red-500', 'bg-green-50', 'bg-red-50');
+
+                if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
+                    container.classList.add('border-green-500', 'bg-green-50');
+                } else {
+                    container.classList.add('border-red-500', 'bg-red-50');
+                }
+            }
+        }
+
+        function resetLangRef() {
+            for (const [id, html] of Object.entries(initialSortableStates)) {
+                const container = document.getElementById(id);
+                if (container) {
+                    container.innerHTML = html;
+                    container.classList.remove('border-green-500', 'border-red-500', 'bg-green-50', 'bg-red-50');
+                    container.classList.add('border-gray-300');
+                }
+            }
         }
     </script>
 </body>
