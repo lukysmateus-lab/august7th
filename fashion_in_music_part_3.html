@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1B: Fashion in Music - Part 3</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            blue: '#E6F3FF',
+                            pink: '#FFE6EB',
+                            green: '#E6FFE6',
+                            yellow: '#FFFBE6',
+                            purple: '#F0E6FF',
+                            gray: '#F8F9FA',
+                            orange: '#FFF0E6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        marker: ['Permanent Marker', 'cursive'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'bounce-slight': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Permanent+Marker&display=swap');
+        
+        body {
+            background-color: #FAFAFA;
+            color: #333333;
+        }
+
+        /* Validation Styles */
+        .val-correct { 
+            border-color: #22c55e !important; 
+            background-color: #f0fdf4 !important; 
+            color: #15803d !important; 
+            box-shadow: 0 0 0 2px #22c55e !important; 
+        }
+        .val-incorrect { 
+            border-color: #ef4444 !important; 
+            background-color: #fef2f2 !important; 
+            color: #b91c1c !important; 
+            box-shadow: 0 0 0 2px #ef4444 !important; 
+        }
+
+        /* Interactive Inputs */
+        .interactive-input {
+            appearance: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .interactive-input:focus { transform: scale(1.02); }
+
+        /* Custom Audio Player Styles */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #ec4899;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #fce7f3;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap gap-4 justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-pastel-pink text-pink-700 font-black text-xl w-12 h-12 rounded-xl flex items-center justify-center shadow-sm border border-pink-100 transform rotate-3">
+                    1B
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-2xl tracking-tight text-gray-800">FASHION IN MUSIC</h1>
+                    <p class="text-xs text-gray-500 font-medium uppercase tracking-widest">Part 3: Review & Create</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="bg-pastel-gray border border-gray-200 px-5 py-2.5 rounded-full flex items-center gap-3 shadow-inner">
+                    <i class="fas fa-stopwatch text-gray-500 text-lg animate-pulse"></i>
+                    <!-- Timer updated to 32 minutes -->
+                    <span id="class-timer" class="font-mono font-bold text-gray-700 text-lg tracking-wider">32:00</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8 space-y-8">
+        
+        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            <div class="p-6 lg:p-8 flex flex-col md:flex-row items-center gap-6">
+                <div class="bg-pastel-blue text-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-inner border border-blue-100 shrink-0">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="font-black text-2xl text-gray-800 mb-2">Homework Correction</h2>
+                    <p class="text-gray-600 text-lg font-medium">Let's check our answers for <strong class="text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Activity Book Lesson 1B</strong>.</p>
+                </div>
+                <div class="shrink-0 animate-bounce-slight text-blue-300 text-4xl hidden md:block">
+                    <i class="fas fa-book-open"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-pastel-purple to-pastel-pink px-6 py-4 border-b border-white/50 flex justify-between items-center">
+                <h2 class="font-bold text-lg text-gray-800 flex items-center gap-2">
+                    <div class="bg-purple-100 text-purple-600 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-redo-alt"></i></div>
+                    Recap: Adjective Order
+                </h2>
+                <span class="text-xs font-bold text-purple-600 bg-purple-100 px-3 py-1 rounded-full uppercase tracking-wider">Ref: Page 20</span>
+            </div>
+            <div class="p-6 lg:p-8 space-y-8">
+                
+                <!-- Baamboozle Link -->
+                <div class="bg-purple-50 rounded-2xl p-6 border-2 border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="font-black text-xl text-purple-800 mb-2">Ready for a Challenge?</h3>
+                        <p class="text-purple-600 font-medium">Let's warm up our brains and test our adjective skills with a quick game!</p>
+                    </div>
+                    <a href="https://www.baamboozle.com/game/1277496" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-1 flex items-center gap-3 shrink-0">
+                        <i class="fas fa-gamepad text-xl"></i> Play Baamboozle
+                    </a>
+                </div>
+
+                <div>
+                    <p class="text-gray-700 mb-6 font-medium text-lg text-center">Let's remember the VIP line of adjectives! Fill in the blanks with the correct category.</p>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                        <div class="flex flex-col gap-2 w-32 relative group">
+                            <input type="text" data-correct="opinion" onblur="checkInput(this)" class="interactive-input w-full bg-white border-2 border-purple-200 text-center font-bold text-purple-700 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 rounded-xl px-2 py-3 shadow-sm z-10 relative" placeholder="e.g. gorgeous">
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 bg-gray-800 text-white text-xs text-center p-2 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity z-20 pointer-events-none">What do YOU think about it?</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-purple-300"></i>
+                        <div class="flex flex-col gap-2 w-32 relative group">
+                            <input type="text" data-correct="style,type,style/type" onblur="checkInput(this)" class="interactive-input w-full bg-white border-2 border-purple-200 text-center font-bold text-purple-700 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 rounded-xl px-2 py-3 shadow-sm z-10 relative" placeholder="e.g. baggy">
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 bg-gray-800 text-white text-xs text-center p-2 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity z-20 pointer-events-none">Is it tight? Baggy? Flared?</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-purple-300"></i>
+                        <div class="flex flex-col gap-2 w-32 relative group">
+                            <input type="text" data-correct="color,colour,pattern,color/pattern" onblur="checkInput(this)" class="interactive-input w-full bg-white border-2 border-purple-200 text-center font-bold text-purple-700 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 rounded-xl px-2 py-3 shadow-sm z-10 relative" placeholder="e.g. striped">
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 bg-gray-800 text-white text-xs text-center p-2 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity z-20 pointer-events-none">Black? White? Checked?</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-purple-300"></i>
+                        <div class="flex flex-col gap-2 w-32 relative group">
+                            <input type="text" data-correct="material" onblur="checkInput(this)" class="interactive-input w-full bg-white border-2 border-purple-200 text-center font-bold text-purple-700 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 rounded-xl px-2 py-3 shadow-sm z-10 relative" placeholder="e.g. denim">
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 bg-gray-800 text-white text-xs text-center p-2 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity z-20 pointer-events-none">What is it made of?</div>
+                        </div>
+                        <i class="fas fa-plus text-gray-400"></i>
+                        <div class="font-black text-lg text-white bg-gray-800 px-6 py-2.5 rounded-xl shadow-md">NOUN</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gradient-to-br from-indigo-600 to-purple-800 rounded-3xl shadow-xl border border-indigo-500 p-6 lg:p-8 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+            
+            <div class="flex items-center gap-3 mb-8 relative z-10">
+                <div class="bg-white text-indigo-700 w-12 h-12 rounded-xl flex items-center justify-center font-black shadow-md text-xl">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-2xl text-white">Speaking: The Party</h2>
+                    <p class="text-indigo-200 text-sm font-medium">Work in pairs. Look closely at your scene and spot the 7 differences with your partner!</p>
+                </div>
+            </div>
+
+            <div class="relative z-10 grid lg:grid-cols-2 gap-8 mb-8">
+                <!-- Party A Image -->
+                <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-4 flex flex-col items-center shadow-lg">
+                    <h3 class="text-center font-black text-xl text-pink-300 mb-4 uppercase tracking-widest flex items-center gap-2">
+                        <i class="fas fa-search"></i> Scene A (Student A)
+                    </h3>
+                    <div class="w-full h-auto rounded-xl overflow-hidden border-2 border-white/30 relative bg-black/5 shadow-inner">
+                        <img src="Captura de Tela 2026-07-29 às 18.34.45.png" alt="Party Scene A" class="w-full h-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Party B Image -->
+                <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-4 flex flex-col items-center shadow-lg">
+                    <h3 class="text-center font-black text-xl text-emerald-300 mb-4 uppercase tracking-widest flex items-center gap-2">
+                        <i class="fas fa-search"></i> Scene B (Student B)
+                    </h3>
+                    <div class="w-full h-auto rounded-xl overflow-hidden border-2 border-white/30 relative bg-black/5 shadow-inner">
+                        <img src="Captura de Tela 2026-07-29 às 18.34.51.png" alt="Party Scene B" class="w-full h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Difference Inputs -->
+            <div class="relative z-10 bg-white p-6 rounded-2xl text-gray-800 shadow-lg">
+                <p class="font-bold mb-4 text-indigo-800"><i class="fas fa-keyboard mr-2"></i> Can you spot them all? Test yourselves!</p>
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <span class="font-bold text-gray-600 min-w-[70px]">Will:</span>
+                        <span class="text-sm text-gray-500">In scene A he has a cool black leather jacket, but in scene B he has a</span>
+                        <input type="text" data-correct="cool denim" onblur="checkInput(this)" class="interactive-input flex-1 bg-gray-50 border-2 border-gray-200 rounded-lg px-3 py-2 text-indigo-700 font-bold focus:border-indigo-500 text-sm" placeholder="(opinion / material) jacket...">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <span class="font-bold text-gray-600 min-w-[70px]">Lucy:</span>
+                        <span class="text-sm text-gray-500">In scene B, she is wearing a</span>
+                        <input type="text" data-correct="hideous black leather" onblur="checkInput(this)" class="interactive-input flex-1 bg-gray-50 border-2 border-gray-200 rounded-lg px-3 py-2 text-indigo-700 font-bold focus:border-indigo-500 text-sm" placeholder="(opinion / color / material) dress...">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <span class="font-bold text-gray-600 min-w-[70px]">Elliot:</span>
+                        <span class="text-sm text-gray-500">In scene A, he is wearing a</span>
+                        <input type="text" data-correct="plain white cotton" onblur="checkInput(this)" class="interactive-input flex-1 bg-gray-50 border-2 border-gray-200 rounded-lg px-3 py-2 text-indigo-700 font-bold focus:border-indigo-500 text-sm" placeholder="(pattern / color / material) T-shirt...">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <span class="font-bold text-gray-600 min-w-[70px]">Hannah:</span>
+                        <span class="text-sm text-gray-500">In scene A, she is wearing</span>
+                        <input type="text" data-correct="comfortable flared" onblur="checkInput(this)" class="interactive-input flex-1 bg-gray-50 border-2 border-gray-200 rounded-lg px-3 py-2 text-indigo-700 font-bold focus:border-indigo-500 text-sm" placeholder="(opinion / style) trousers...">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <span class="font-bold text-gray-600 min-w-[70px]">Lana:</span>
+                        <span class="text-sm text-gray-500">In scene B, she is wearing</span>
+                        <input type="text" data-correct="gorgeous baggy" onblur="checkInput(this)" class="interactive-input flex-1 bg-gray-50 border-2 border-gray-200 rounded-lg px-3 py-2 text-indigo-700 font-bold focus:border-indigo-500 text-sm" placeholder="(opinion / style) trousers...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-pastel-yellow to-pastel-orange px-6 py-4 border-b border-white/50 flex justify-between items-center">
+                <h2 class="font-bold text-lg text-gray-800 flex items-center gap-2">
+                    <div class="bg-yellow-100 text-yellow-600 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-guitar"></i></div>
+                    Group Work: Create Your Band!
+                </h2>
+            </div>
+            
+            <div class="p-6 lg:p-8">
+                <!-- Audio and Expressions Section -->
+                <div class="bg-gray-800 text-white rounded-2xl p-6 mb-8 shadow-lg relative overflow-hidden">
+                    <!-- Decorative background element -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500 opacity-20 rounded-full blur-2xl transform translate-x-10 -translate-y-10"></div>
+                    
+                    <h3 class="font-black text-xl mb-4 flex items-center gap-2 text-pink-300 relative z-10">
+                        <i class="fas fa-headphones-alt"></i> Pocket Expressions: Listen & Repeat
+                    </h3>
+                    
+                    <div class="flex flex-col md:flex-row gap-8 relative z-10">
+                        <!-- Custom Audio Player -->
+                        <div class="flex-1 bg-gray-900 rounded-xl p-4 border border-gray-700 flex flex-col justify-center">
+                            <audio id="pocket-audio" src="1d8a5780-e537-4d73-9263-07f491056106_Track 05–Lesson 1B–Pock Exp.mp3" preload="metadata"></audio>
+                            
+                            <div class="flex items-center gap-4 mb-3">
+                                <button id="play-btn" class="bg-pink-500 hover:bg-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-lg transition-transform transform hover:scale-105 shrink-0 shadow-[0_0_15px_rgba(236,72,153,0.5)]">
+                                    <i class="fas fa-play ml-1" id="play-icon"></i>
+                                </button>
+                                <div class="flex-1">
+                                    <p class="text-xs text-gray-400 font-bold mb-1 uppercase tracking-wider">Now Playing</p>
+                                    <p class="text-sm font-medium text-pink-100">Suggestions & Preferences</p>
+                                </div>
+                                <div class="text-xs font-mono text-gray-400 shrink-0">
+                                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                                </div>
+                            </div>
+                            
+                            <input type="range" id="seek-slider" max="100" value="0" class="w-full">
+                        </div>
+
+                        <!-- Expressions List -->
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-300 mb-3 font-medium">Use these phrases when discussing with your group:</p>
+                            <ul class="space-y-2">
+                                <li class="bg-gray-700/50 rounded-lg px-4 py-2 border border-gray-600 font-medium text-pink-50"><i class="fas fa-comment-dots text-pink-400 mr-2"></i> <span class="text-white">"I think we should..."</span></li>
+                                <li class="bg-gray-700/50 rounded-lg px-4 py-2 border border-gray-600 font-medium text-pink-50"><i class="fas fa-lightbulb text-pink-400 mr-2"></i> <span class="text-white">"Why don't we...?"</span></li>
+                                <li class="bg-gray-700/50 rounded-lg px-4 py-2 border border-gray-600 font-medium text-pink-50"><i class="fas fa-thumbs-up text-pink-400 mr-2"></i> <span class="text-white">"It would be better if..."</span></li>
+                                <li class="bg-gray-700/50 rounded-lg px-4 py-2 border border-gray-600 font-medium text-pink-50"><i class="fas fa-star text-pink-400 mr-2"></i> <span class="text-white">"I prefer... to..."</span></li>
+                                <li class="bg-gray-700/50 rounded-lg px-4 py-2 border border-gray-600 font-medium text-pink-50"><i class="fas fa-heart text-pink-400 mr-2"></i> <span class="text-white">"I'd rather... than..."</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Band Creation Instructions -->
+                <div class="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 text-left shadow-sm">
+                    <p class="text-gray-700 text-lg mb-5">
+                        Get into groups of 3 or 4. Practice the expressions above and decide on your band's details. You have 5 minutes to prepare your presentation!
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-orange-100 shadow-sm flex items-center gap-4">
+                            <div class="bg-orange-100 text-orange-600 w-10 h-10 rounded-full flex items-center justify-center font-black"><i class="fas fa-signature"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Decide on a</p>
+                                <p class="font-black text-gray-800">Band Name</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-orange-100 shadow-sm flex items-center gap-4">
+                            <div class="bg-orange-100 text-orange-600 w-10 h-10 rounded-full flex items-center justify-center font-black"><i class="fas fa-music"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Choose a</p>
+                                <p class="font-black text-gray-800">Music Genre</p>
+                                <p class="text-xs text-gray-400">(pop, rock, indie, hip hop...)</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-orange-100 shadow-sm flex items-center gap-4">
+                            <div class="bg-orange-100 text-orange-600 w-10 h-10 rounded-full flex items-center justify-center font-black"><i class="fas fa-tshirt"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Describe the</p>
+                                <p class="font-black text-gray-800">Visual Style / Clothes</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-orange-100 shadow-sm flex items-center gap-4">
+                            <div class="bg-orange-100 text-orange-600 w-10 h-10 rounded-full flex items-center justify-center font-black"><i class="fas fa-record-vinyl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Name your</p>
+                                <p class="font-black text-gray-800">First Hit Single</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Exit Ticket with SheetMonkey -->
+            <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 lg:p-8">
+                <h3 class="font-black text-2xl text-gray-800 mb-6 flex items-center gap-3">
+                    <div class="bg-pastel-pink w-12 h-12 rounded-xl flex items-center justify-center border-2 border-pink-200">
+                        <i class="fas fa-ticket-alt text-pink-500 text-2xl"></i> 
+                    </div>
+                    Exit Ticket
+                </h3>
+                
+                <!-- SHEET MONKEY FORM -->
+                <!-- Replace 'YOUR_SHEET_MONKEY_URL_HERE' with your actual endpoint -->
+                <form action="YOUR_SHEET_MONKEY_URL_HERE" method="POST" class="bg-pastel-pink/40 p-6 rounded-2xl border-2 border-pink-100 space-y-5">
+                    <!-- Hidden field to identify the lesson -->
+                    <input type="hidden" name="Lesson" value="1B Fashion in Music - Part 3">
+                    
+                    <div>
+                        <label class="block text-gray-800 font-bold mb-2 text-sm uppercase tracking-wide">Student Name:</label>
+                        <input type="text" name="StudentName" required class="w-full rounded-xl border-2 border-white shadow-sm focus:border-pink-400 focus:ring-4 focus:ring-pink-100 p-3 text-gray-700 font-medium transition-all" placeholder="Type your name...">
+                    </div>
+                    <div>
+                        <label class="block text-gray-800 font-bold mb-2">Write a sentence describing an item of clothing using ALL adjective categories (Opinion, Style, Color, Material):</label>
+                        <div class="flex items-center gap-2 bg-white rounded-xl border-2 border-white shadow-sm p-2 focus-within:border-pink-400 focus-within:ring-4 focus-within:ring-pink-100 transition-all">
+                            <span class="text-gray-500 font-medium pl-2">"My singer is wearing a</span>
+                            <input type="text" name="Sentence" required class="flex-1 outline-none text-gray-700 font-bold bg-transparent" placeholder="e.g. cool tight black leather">
+                            <span class="text-gray-500 font-medium pr-2">jacket."</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-black py-3 rounded-xl shadow-md transition-colors mt-2">
+                        Submit Exit Ticket <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Homework -->
+            <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 lg:p-8">
+                <h3 class="font-black text-2xl text-gray-800 mb-6 flex items-center gap-3">
+                    <div class="bg-pastel-blue w-12 h-12 rounded-xl flex items-center justify-center border-2 border-blue-200">
+                        <i class="fas fa-home text-blue-500 text-2xl"></i>
+                    </div>
+                    Homework
+                </h3>
+                <div class="bg-pastel-blue/40 p-6 rounded-2xl border-2 border-blue-100 flex items-start gap-4 hover:bg-blue-50 transition-colors h-full">
+                    <div class="bg-white p-4 rounded-xl text-blue-600 shadow-sm border border-blue-100 shrink-0">
+                        <i class="fas fa-star text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 font-black text-lg mb-2">Graded Activity</p>
+                        <p class="text-gray-700 font-medium leading-relaxed">Please complete <strong class="bg-blue-200/50 px-1 rounded text-blue-800">Graded Activity 3</strong> before the next class.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Timer Logic (32 min class)
+            let minutes = 32;
+            let seconds = 0;
+            const timerDisplay = document.getElementById('class-timer');
+            
+            if (timerDisplay) {
+                setInterval(() => {
+                    if(seconds === 0 && minutes > 0) {
+                        minutes--;
+                        seconds = 59;
+                    } else if (seconds > 0) {
+                        seconds--;
+                    }
+                    
+                    const mins = minutes.toString().padStart(2, '0');
+                    const secs = seconds.toString().padStart(2, '0');
+                    timerDisplay.textContent = `${mins}:${secs}`;
+                    
+                    if(minutes < 5) {
+                        timerDisplay.parentElement.classList.add('bg-red-50', 'border-red-200');
+                        timerDisplay.classList.add('text-red-600');
+                        timerDisplay.previousElementSibling.classList.add('text-red-500');
+                    }
+                }, 1000);
+            }
+
+            // Custom Audio Player Logic
+            const audio = document.getElementById('pocket-audio');
+            const playBtn = document.getElementById('play-btn');
+            const playIcon = document.getElementById('play-icon');
+            const seekSlider = document.getElementById('seek-slider');
+            const currentTimeContainer = document.getElementById('current-time');
+            const durationContainer = document.getElementById('duration');
+
+            // Format time helper
+            const calculateTime = (secs) => {
+                const minutes = Math.floor(secs / 60);
+                const seconds = Math.floor(secs % 60);
+                const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+                return `${minutes}:${returnedSeconds}`;
+            }
+
+            const displayDuration = () => {
+                durationContainer.textContent = calculateTime(audio.duration);
+                seekSlider.max = Math.floor(audio.duration);
+            }
+
+            // Play / Pause
+            playBtn.addEventListener('click', () => {
+                if(audio.paused) {
+                    audio.play();
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.remove('ml-1');
+                    playIcon.classList.add('fa-pause');
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    playIcon.classList.add('ml-1');
+                }
+            });
+
+            // Update duration when metadata loads
+            if (audio.readyState > 0) {
+                displayDuration();
+            } else {
+                audio.addEventListener('loadedmetadata', displayDuration);
+            }
+
+            // Update slider and current time as audio plays
+            audio.addEventListener('timeupdate', () => {
+                seekSlider.value = Math.floor(audio.currentTime);
+                currentTimeContainer.textContent = calculateTime(seekSlider.value);
+            });
+
+            // Handle slider drag
+            seekSlider.addEventListener('input', () => {
+                currentTimeContainer.textContent = calculateTime(seekSlider.value);
+            });
+
+            seekSlider.addEventListener('change', () => {
+                audio.currentTime = seekSlider.value;
+            });
+
+            // Reset when audio ends
+            audio.addEventListener('ended', () => {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                playIcon.classList.add('ml-1');
+                seekSlider.value = 0;
+                currentTimeContainer.textContent = "0:00";
+            });
+        });
+
+        // Validation for Text Inputs
+        function checkInput(inputElement) {
+            const correctVals = inputElement.getAttribute('data-correct').split(',');
+            const userVal = inputElement.value.trim().toLowerCase().replace(/\s+/g, ' '); 
+            
+            inputElement.classList.remove('val-correct', 'val-incorrect');
+            if (userVal === '') return;
+
+            let isCorrect = correctVals.some(val => val.trim().toLowerCase() === userVal);
+            if (isCorrect) {
+                inputElement.classList.add('val-correct');
+            } else {
+                inputElement.classList.add('val-incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
